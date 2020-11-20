@@ -289,9 +289,7 @@ class JobViewController extends AbstractController
         $config = $configuration->getUserConfig($this->getUser());
 
         if ( $job->isRunning ) {
-            $job->stopTime = time();
-            /* $job->stopTime = 1521057932; */
-            $job->duration = $job->stopTime - $job->startTime;
+            $job->duration = time() - $job->getStartTime();
         }
 
         $alltags = $this->getDoctrine()

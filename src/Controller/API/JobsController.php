@@ -121,7 +121,6 @@ class JobsController extends AbstractFOSRestController
             throw new HttpException(400, "No such running job: $id");
         }
 
-        $id->stopTime = $stop_time;
         $id->duration = $stop_time - $id->startTime;
         $id->isRunning = false;
 

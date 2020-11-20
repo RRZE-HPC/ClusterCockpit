@@ -71,11 +71,6 @@ class Job
     /**
      *  @ORM\Column(type="integer", nullable=true)
      */
-    public $stopTime;
-
-    /**
-     *  @ORM\Column(type="integer", nullable=true)
-     */
     public $duration;
 
     /**
@@ -217,12 +212,7 @@ class Job
 
     public function getStopTime()
     {
-        return $this->stopTime;
-    }
-
-    public function setStopTime($stopTime)
-    {
-        $this->stopTime = $stopTime;
+        return $this->startTime + $this->duration;
     }
 
     public function getNodeIdArray()
